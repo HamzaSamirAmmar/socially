@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'infrastructure/firebase/crashlytics.dart';
 import 'infrastructure/logger/socially_logger.dart';
 import 'package:socially/locator.dart';
-import 'package:socially/services/supabase_service.dart';
+import 'package:socially/infrastructure/supabase/supabase_service.dart';
 
 void main() {
   // Run in zone guard to catch all exceptions.
