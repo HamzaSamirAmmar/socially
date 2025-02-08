@@ -26,6 +26,7 @@ dependencies:
   firebase_core: ^2.22.0
   socially_ui_components:
     path: ../packages/ui_components
+  isar_flutter_libs: ^3.1.0+1
 
 
 dev_dependencies:
@@ -40,6 +41,7 @@ dev_dependencies:
   injectable_generator: ^2.4.1
   isar_generator: ^3.1.0+1
   flutter_lints: ^5.0.0
+  analyzer: ^5.13.0
 
 flutter:
 
