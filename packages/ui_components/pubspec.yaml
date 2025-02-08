@@ -1,0 +1,41 @@
+name: socially_ui_components
+description: UI components for socially apps.
+version: 0.0.1
+publish_to: none
+
+environment:
+  sdk: ^3.8.0-1.0.dev
+  flutter: ">=3.13.1 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_svg: ^2.0.9
+  lottie: ^2.7.0
+
+dev_dependencies:
+  flutter_gen: ^5.3.2
+  build_runner: ^2.4.6
+  flutter_test:
+    sdk: flutter
+  socially_analysis:
+    path: ../analysis
+
+flutter_gen:
+  output: lib/components/assets/
+  generate: true 
+  integrations:
+    flutter_svg: true
+
+# The following section is specific to Flutter.
+flutter:
+
+  fonts:
+    - family: RacingSansOne
+      fonts:
+        - asset: lib/fonts/RacingSansOne-Regular.ttf
+          weight: 400
+          style: normal
+
+  assets:
+    - assets/svgs/

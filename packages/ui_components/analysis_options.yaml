@@ -1,0 +1,11 @@
+# This file configures the analyzer, which statically analyzes Dart code to
+# check for errors, warnings, and lints based on shared socially config.
+include: package:socially_analysis/default.yaml
+
+analyzer:
+  exclude:
+    - "lib/components/icons/*.dart"
+
+linter:
+  rules:
+    - public_member_api_docs # requires to document public code

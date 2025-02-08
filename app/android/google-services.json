@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "164581384997",
+    "project_id": "socially-haveabreak",
+    "storage_bucket": "socially-haveabreak.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:164581384997:android:8e1f426bbf04646fddb0cc",
+        "android_client_info": {
+          "package_name": "com.havebreak.socially"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpl2cxtdamXMBQbxJRJYYaAqVpBUBJa-M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

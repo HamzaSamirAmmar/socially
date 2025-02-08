@@ -1,0 +1,132 @@
+# This file configures the analyzer, which statically analyzes Dart code to
+# check for errors, warnings, and lints based on shared inne config.
+include: package:socially_analysis/default.yaml
+
+analyzer:
+  plugins:
+    - dart_code_metrics
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "**/*.mocks.dart"
+    - "**/*.config.dart"
+    - "**/*.gen.dart"
+
+dart_code_metrics:
+  anti-patterns:
+    - long-method
+    - long-parameter-list
+  metrics:
+    cyclomatic-complexity: 20
+    maximum-nesting-level: 4
+    number-of-parameters: 4
+    # REVISIT: Reduce it to 50 at some point.
+    source-lines-of-code: 100
+  metrics-exclude:
+    - test/**
+  rules:
+    - prefer-conditional-expressions
+    # Not used rules are commented and kept for reference purpose,
+    # see more in https://dartcodemetrics.dev/docs/rules
+    # Common
+    # - arguments-ordering
+    - avoid-banned-imports:
+        severity: error
+        entries:
+          - paths: ["lib/domain/.*\\.dart"]
+            deny: ["package:flutter/material.dart", "package:flutter/cupertino.dart"]
+            message: "Do not import Flutter Design libraries into domain!"
+    - avoid-cascade-after-if-null
+    - avoid-collection-methods-with-unrelated-types
+    - avoid-double-slash-imports
+    # - avoid-duplicate-exports
+    # REVISIT: Reconsider turning it on at some point for better type strictness.
+    # - avoid-dynamic
+    - avoid-global-state
+    # - avoid-ignoring-return-values
+    # - avoid-late-keyword
+    # - avoid-missing-enum-constant-in-map
+    - avoid-nested-conditional-expressions:
+        severity: error
+        acceptable-level: 2
+    - avoid-non-ascii-symbols
+    # - avoid-non-null-assertion
+    # - avoid-passing-async-when-sync-expected
+    - avoid-redundant-async:
+        severity: error
+    - avoid-throw-in-catch-block
+    # - avoid-top-level-members-in-tests
+    - avoid-unnecessary-conditionals:
+        severity: error
+    - avoid-unnecessary-type-assertions
+    - avoid-unnecessary-type-casts
+    - avoid-unrelated-type-assertions
+    - avoid-unused-parameters:
+        severity: error
+    - ban-name:
+        severity: error
+        entries:
+          - ident: debugPrint
+            description: Please use inneLogger methods instead.
+          - ident: log
+            description: Please use inneLogger methods instead.
+    # - binary-expression-operand-order
+    - double-literal-format
+    - format-comment
+    - list-all-equatable-fields
+    # REVISIT: Enable ordering in next iteration.
+    # - member-ordering
+    # REVISIT: Disabled for now as not working as expected
+    # - missing-test-assertion:
+    #     include-assertions: [verify, verifyInOrder, verifyNever]
+    - newline-before-return
+    - no-boolean-literal-compare:
+        severity: error
+    # - no-empty-block
+    # - no-equal-arguments
+    - no-equal-then-else:
+        severity: error
+    # REVISIT: Reconsider turning it on at some point for better numbers description.
+    # - no-magic-number
+    - no-object-declaration:
+        severity: error
+    - prefer-async-await
+    # REVISIT: Reconsider turning it on at some point to add more context why something was ignored in first place.
+    # - prefer-commenting-analyzer-ignores
+    - prefer-conditional-expressions
+    - prefer-correct-identifier-length:
+        severity: error
+        exceptions: [ 'i', 'x', 'y' ]
+        min-identifier-length: 2
+    - prefer-correct-test-file-name
+    - prefer-correct-type-name:
+        max-length: 100
+    # - prefer-enums-by-name
+    # - prefer-first
+    - prefer-immediate-return
+    - prefer-iterable-of
+    - prefer-last
+    # - prefer-match-file-name
+    # - prefer-moving-to-variable
+    # - prefer-static-class
+    - prefer-trailing-comma:
+        severity: error
+    - tag-name
+    # Flutter
+    - always-remove-listener
+    - avoid-border-all
+    - avoid-expanded-as-spacer
+    - avoid-returning-widgets:
+        severity: error
+    - avoid-shrink-wrap-in-lists
+    - avoid-unnecessary-setstate
+    # - avoid-wrapping-in-padding
+    - check-for-equals-in-render-object-setters
+    - consistent-update-render-object
+    - prefer-const-border-radius
+    - prefer-correct-edge-insets-constructor
+    # - prefer-extracting-callbacks
+    - prefer-single-widget-per-file:
+        ignore-private-widgets: true
+    - prefer-using-list-view
+    # - use-setstate-synchronously

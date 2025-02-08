@@ -1,0 +1,11 @@
+name: socially_analysis
+description: Recommended lints for socially Flutter apps, packages, and plugins to encourage good coding practices.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.8.0-1.0.dev
+
+dependencies:
+    flutter_lints: ^5.0.0
+  # Code is not allowed in this package. Do not add any dependencies or dev_dependencies.

@@ -1,0 +1,1 @@
+enum FirebaseEnvironment { staging, production }
