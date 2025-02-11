@@ -63,13 +63,19 @@ class _StoryItemViewState extends State<StoryItemView> {
               children: [
                 Row(
                   children: [
-                    Container(
-                      padding: EdgeInsets.all(8.w),
-                      decoration: BoxDecoration(
-                        color: Theme.of(context).colorScheme.secondary.withAlpha(70),
-                        borderRadius: BorderRadius.circular(10.r),
+                    GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: () {
+                        context.pop();
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(8.w),
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.secondary.withAlpha(70),
+                          borderRadius: BorderRadius.circular(10.r),
+                        ),
+                        child: SAsset.back,
                       ),
-                      child: SAsset.back,
                     ),
                     SizedBox(width: 10.w),
                     Text(
