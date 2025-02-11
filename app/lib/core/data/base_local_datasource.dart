@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+import 'package:isar/isar.dart';
 import 'package:socially/core/infrastructure/persistence/local_storage_service.dart';
 import 'package:socially/core/constants/local_storage_keys.dart';
 
@@ -25,8 +26,9 @@ abstract class BaseLocalDatasource {
 @LazySingleton(as: BaseLocalDatasource)
 class BaseLocalDataSourceImpl implements BaseLocalDatasource {
   final LocalStorageService _storage;
+  final Isar isar;
 
-  BaseLocalDataSourceImpl(this._storage);
+  BaseLocalDataSourceImpl(this._storage, this.isar);
 
   @override
   String get token => _storage.get<String>(LocalStorageKeys.apiToken) ?? '';

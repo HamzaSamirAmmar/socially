@@ -1,4 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:socially/core/infrastructure/database_models/base_db_model.dart';
+import 'package:socially/core/infrastructure/database_models/post_media_db_model.dart';
 
 import '../../../../core/data/models/base_model.dart';
 import '../../domain/entities/post_media.dart';
@@ -34,19 +36,27 @@ class PostMediaModel with _$PostMediaModel implements BaseModel {
 
   @override
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'media_url': url,
-        'media_type': type.toString().split('.').last,
-        'post_id': postId,
-        'created_at': createdAt.toIso8601String(),
-      };
+    'id': id,
+    'media_url': url,
+    'media_type': type.toString().split('.').last,
+    'post_id': postId,
+    'created_at': createdAt.toIso8601String(),
+  };
 
   @override
   PostMedia toEntity() => PostMedia(
-        id: id,
-        url: url,
-        type: type,
-        postId: postId,
-        createdAt: createdAt,
-      );
+    id: id,
+    url: url,
+    type: type,
+    postId: postId,
+    createdAt: createdAt,
+  );
+
+  @override
+  BaseDbModel toDbModel() => PostMediaDbModel(
+    id: id,
+    mediaUrl: url,
+    mediaType: type,
+    createdAt: createdAt,
+  );
 }

@@ -1,4 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:socially/core/infrastructure/database_models/base_db_model.dart';
+import 'package:socially/core/infrastructure/database_models/comment_db_model.dart';
 
 import '../../../../core/data/models/base_model.dart';
 import '../../domain/entities/comment.dart';
@@ -30,19 +32,23 @@ class CommentModel with _$CommentModel implements BaseModel {
 
   @override
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'content': content,
-        'user_id': userId,
-        'post_id': postId,
-        'created_at': createdAt.toIso8601String(),
-      };
+    'id': id,
+    'content': content,
+    'user_id': userId,
+    'post_id': postId,
+    'created_at': createdAt.toIso8601String(),
+  };
 
   @override
   Comment toEntity() => Comment(
-        id: id,
-        content: content,
-        userId: userId,
-        postId: postId,
-        createdAt: createdAt,
-      );
+    id: id,
+    content: content,
+    userId: userId,
+    postId: postId,
+    createdAt: createdAt,
+  );
+
+  @override
+  BaseDbModel toDbModel() =>
+      CommentDbModel(id: id, content: content, createdAt: createdAt);
 }

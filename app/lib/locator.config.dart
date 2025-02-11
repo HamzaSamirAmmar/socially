@@ -75,14 +75,19 @@ extension GetItInjectableX on _i1.GetIt {
       () => supabaseModule.provideSupabaseClient(),
       preResolve: true,
     );
-    gh.lazySingleton<_i7.BaseLocalDatasource>(
-        () => _i7.BaseLocalDataSourceImpl(gh<_i5.LocalStorageService>()));
+    gh.lazySingleton<_i7.BaseLocalDatasource>(() => _i7.BaseLocalDataSourceImpl(
+          gh<_i5.LocalStorageService>(),
+          gh<_i4.Isar>(),
+        ));
     gh.lazySingleton<_i8.BaseRemoteDatasource>(() =>
         _i8.BaseRemoteDataSourceImpl(supabaseClient: gh<_i6.SupabaseClient>()));
     gh.lazySingleton<_i9.BaseRepository>(() =>
         _i9.BaseRepositoryImpl(connectionService: gh<_i3.ConnectionService>()));
     gh.lazySingleton<_i10.HomeLocalDatasource>(
-        () => _i11.HomeLocalDatasourceImp(gh<_i5.LocalStorageService>()));
+        () => _i11.HomeLocalDatasourceImp(
+              gh<_i5.LocalStorageService>(),
+              gh<_i4.Isar>(),
+            ));
     gh.lazySingleton<_i12.HomeRemoteDatasource>(() =>
         _i13.HomeRemoteDatasourceImp(supabaseClient: gh<_i6.SupabaseClient>()));
     gh.lazySingleton<_i14.HomeRepository>(() => _i15.HomeRepositoryImp(

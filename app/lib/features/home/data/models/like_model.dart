@@ -1,4 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:socially/core/infrastructure/database_models/base_db_model.dart';
+import 'package:socially/core/infrastructure/database_models/like_db_model.dart';
 
 import '../../../../core/data/models/base_model.dart';
 import '../../domain/entities/like.dart';
@@ -28,17 +30,16 @@ class LikeModel with _$LikeModel implements BaseModel {
 
   @override
   Map<String, dynamic> toJson() => {
-        'id': id,
-        'user_id': userId,
-        'post_id': postId,
-        'created_at': createdAt.toIso8601String(),
-      };
+    'id': id,
+    'user_id': userId,
+    'post_id': postId,
+    'created_at': createdAt.toIso8601String(),
+  };
 
   @override
-  Like toEntity() => Like(
-        id: id,
-        userId: userId,
-        postId: postId,
-        createdAt: createdAt,
-      );
+  Like toEntity() =>
+      Like(id: id, userId: userId, postId: postId, createdAt: createdAt);
+
+  @override
+  BaseDbModel toDbModel() => LikeDbModel(id: id, createdAt: createdAt);
 }
