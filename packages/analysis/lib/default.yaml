@@ -26,6 +26,10 @@ analyzer:
     avoid_print: error
     # allow having TODOs in the code
     todo: ignore
+    # allow having invalid annotations
+    invalid_annotation_target: ignore
+    # allow having long parameter lists
+    long-parameter-list: ignore
 
 linter:
   # https://dart-lang.github.io/linter/lints/options/options.html
