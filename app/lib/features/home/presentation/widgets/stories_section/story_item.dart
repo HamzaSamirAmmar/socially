@@ -22,13 +22,20 @@ class StoryListItem extends StatelessWidget {
           MaterialPageRoute(
             builder:
                 (context) => StoryItemView(
-                  items: [
-                    StoryItem.pageImage(
-                      url: story.postmedia.first.url,
-                      controller: StoryController(),
-                      imageFit: BoxFit.cover,
-                    ),
-                  ],
+                      itemsCreationDate: List.generate(
+                        story.postmedia.length,
+                        (i) => story.postmedia[i].createdAt,
+                      ),
+                      username: story.user.name,
+                      items: story.postmedia
+                          .map(
+                            (e) => StoryItem.pageImage(
+                              url: e.url,
+                              controller: StoryController(),
+                              imageFit: BoxFit.cover,
+                            ),
+                          )
+                          .toList(),
                 ),
           ),
         );
