@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../../core/constants/database_constants.dart'
+    show DatabaseConstants;
 import '../../../../core/data/base_repository.dart';
 import '../../../../core/failures/failures.dart';
 import '../../domain/entities/post.dart';
@@ -30,7 +32,9 @@ class HomeRepositoryImp extends BaseRepositoryImpl implements HomeRepository {
                     .map((model) => model.toEntity())
                     .toList(),
         cacheData: (posts) async {
-          await _localDatasource.saveHomePosts(posts); // Cache the list
+          await _localDatasource.saveHomePosts(
+            posts.take(DatabaseConstants.maxCacheSize).toList(),
+          );
         },
       );
 
@@ -44,7 +48,9 @@ class HomeRepositoryImp extends BaseRepositoryImpl implements HomeRepository {
                     .map((model) => model.toEntity())
                     .toList(),
         cacheData: (stories) async {
-          await _localDatasource.saveHomeStories(stories);
+          await _localDatasource.saveHomeStories(
+            stories.take(DatabaseConstants.maxCacheSize).toList(),
+          );
         },
       );
 }

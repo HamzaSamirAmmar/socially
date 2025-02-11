@@ -31,13 +31,6 @@ flutter_gen:
 # The following section is specific to Flutter.
 flutter:
 
-  fonts:
-    - family: RacingSansOne
-      fonts:
-        - asset: lib/fonts/RacingSansOne-Regular.ttf
-          weight: 400
-          style: normal
-
   assets:
     - assets/svgs/
     - assets/pngs/
