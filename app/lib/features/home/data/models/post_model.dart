@@ -104,6 +104,7 @@ class PostModel with _$PostModel implements BaseModel {
     id: id,
     userId: userId,
     createdAt: createdAt,
+    content: content,
     tags: tags,
     mediaStyle: style,
     postType: type,
