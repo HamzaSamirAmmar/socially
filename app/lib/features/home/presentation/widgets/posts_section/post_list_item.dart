@@ -22,7 +22,7 @@ class PostListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 13.w, vertical: 12.h),
+      margin: EdgeInsets.symmetric( vertical: 12.h),
       padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 16.h),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.secondary,

@@ -26,18 +26,18 @@ class HomeRemoteDatasourceImp extends BaseRemoteDataSourceImpl
 
   @override
   Future<List<PostModel>> getHomeStories() async {
-    final String formattedDate =
-        DateTime.now()
-            .subtract(const Duration(hours: 24))
-            .toUtc()
-            .toIso8601String();
+    // final String formattedDate =
+    //     DateTime.now()
+    //         .subtract(const Duration(hours: 24))
+    //         .toUtc()
+    //         .toIso8601String();
 
     return await getData(
       table: 'posts',
       fromJson: PostModel.fromJson,
       filters: {
         'post_type': 'story',
-        'created_at': formattedDate, // Filter for posts in the last 24 hours
+        // 'created_at': formattedDate, // Filter for posts in the last 24 hours
       },
       joins: <TableJoin>[
         TableJoin(relationName: 'postmedia'),

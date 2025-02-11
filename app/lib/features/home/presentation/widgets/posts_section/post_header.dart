@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:socially/core/constants/letter_spacing.dart';
-import 'package:socially/core/presentation/cached_network_image.dart';
+import 'package:socially/core/presentation/avatar_network_image.dart';
 
 import '../../../../../core/utils/date_time_formatter.dart';
 import '../../../domain/entities/post.dart';
@@ -30,7 +30,7 @@ class PostHeader extends StatelessWidget {
               shape: BoxShape.circle,
               // color: Colors.grey[300],
             ),
-            child: SCachedNetworkImage(
+            child: AvatarNetworkImage(
               imageUrl: post.user.avatarUrl ?? '',
               width: 25.w,
               height: 25.w,

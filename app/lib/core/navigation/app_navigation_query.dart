@@ -5,5 +5,5 @@
 class AppNavigationQuery {
   AppNavigationQuery._();
 
-  // TODO: Add queries needed to pass between screens.
+  
 }

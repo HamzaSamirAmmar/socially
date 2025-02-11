@@ -3,6 +3,7 @@ import 'package:injectable/injectable.dart';
 
 import '../failures/failures.dart';
 import '../infrastructure/connection/connection_service.dart';
+import '../infrastructure/logger/socially_logger.dart';
 
 typedef RequestBody<T> = Future<T> Function();
 
@@ -28,7 +29,9 @@ class BaseRepositoryImpl implements BaseRepository {
       return connectionService.hasConnection()
           ? Right(await remoteBody())
           : Right(await localBody());
-    } catch (e,s) {
+    } catch (e, s) {
+      sLogger.e(e, stack: s);
+
       return Left(ServerFailure()); // TODO: Handle exception
     }
   }

@@ -23,9 +23,9 @@ class SCachedNetworkImage extends StatelessWidget {
   Widget build(BuildContext context) {
     return CachedNetworkImage(
       imageUrl: imageUrl,
-      // width: width,
-      // height: height,
-      // fit: BoxFit.fitHeight,
+      width: width,
+      height: height,
+      fit: BoxFit.cover,
       placeholder:
           (context, url) =>
               placeholder ??

@@ -1,11 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:socially/features/home/presentation/screen/home_screen.dart';
-import 'package:socially/locator.dart';
 
-import '../../features/home/presentation/state_m/posts_cubit/posts_cubit.dart';
 import '../../features/main/presentation/screen/main_screen.dart';
 import '../../features/splash/presentation/screen/splash_screen.dart';
 import 'app_navigation_route.dart';
@@ -22,6 +18,7 @@ final appNavigationRouter = GoRouter(
       path: AppNavigationRoute.main,
       builder: (context, state) => const MainScreen(),
     ),
+
   ],
   debugLogDiagnostics: kDebugMode,
 );

@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../state_m/posts_cubit/posts_cubit.dart';
+import '../error_view.dart';
 import 'empty_posts_view.dart';
-import 'error_view.dart';
-import 'post_list.dart';
 import 'post_list_item.dart';
 
 class PostsSection extends StatefulWidget {
