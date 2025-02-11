@@ -11,10 +11,8 @@ socially/
 │   ├── android/            # Android-specific configurations
 │   ├── ios/                # iOS-specific configurations
 │   ├── lib/                # Core application source code
-│   │   ├── components/     # Reusable UI components
-│   │   ├── models/         # Data models
-│   │   ├── screens/        # Individual app screens
-│   │   ├── services/       # Backend and API services
+│   │   ├── core/           # Core application code
+│   │   ├── features/       # Feature-specific data models
 │   │   └── main.dart       # Application entry point
 │   │
 │   └── test/               # Unit and widget tests
