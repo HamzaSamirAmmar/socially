@@ -1,16 +1,44 @@
-# socially
+# Socially - HaveBreak Social Media App (Flutter Task)
 
-A new Flutter project.
+## Project Overview
+Socially is a mobile social media application developed for HaveBreak company using Flutter. The app provides a modern, responsive platform for social interactions and content sharing.
 
-## Getting Started
+## Project Structure
+```
+socially/
+│
+├── app/                    # Main application directory
+│   ├── android/            # Android-specific configurations
+│   ├── ios/                # iOS-specific configurations
+│   ├── lib/                # Core application source code
+│   │   ├── components/     # Reusable UI components
+│   │   ├── models/         # Data models
+│   │   ├── screens/        # Individual app screens
+│   │   ├── services/       # Backend and API services
+│   │   └── main.dart       # Application entry point
+│   │
+│   └── test/               # Unit and widget tests
+│
+├── ui_components/          # Shared UI component library
+└── pubspec.yaml            # Project dependencies and configuration
+```
 
-This project is a starting point for a Flutter application.
+## Key Features
+- Home Post Feeds
+- Home Stories Feeds
 
-A few resources to get you started if this is your first Flutter project:
+## Development Setup
+1. Ensure Flutter SDK is installed
+2. Run `flutter pub get` to install dependencies
+3. Use `flutter run` to launch the app
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Build and Deployment
+- Android: `flutter build apk`
+- iOS: `flutter build ios`
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Technologies
+- Flutter
+- Dart
+- State Management: Cubit
+- Backend: Supabase
+
