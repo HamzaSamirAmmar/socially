@@ -7,6 +7,7 @@ import '../../domain/entities/post.dart';
 import '../../domain/repositories/home_repository.dart';
 import '../data/local/home_local_datasource.dart';
 import '../data/remote/home_remote_datasource.dart';
+import '../models/post_model.dart';
 
 @LazySingleton(as: HomeRepository)
 class HomeRepositoryImp extends BaseRepositoryImpl implements HomeRepository {
@@ -21,23 +22,29 @@ class HomeRepositoryImp extends BaseRepositoryImpl implements HomeRepository {
 
   @override
   Future<Either<Failure, List<Post>>> getHomePosts() async =>
-      await performRequestFromRemoteOrLocal<List<Post>>(
-        remoteBody:
+      await performListRequestFromRemoteOrLocal<Post, PostModel>(
+        remoteRequest: () async => await _remoteDatasource.getHomePosts(),
+        localRequest:
             () async =>
-                (await _remoteDatasource.getHomePosts())
+                (await _localDatasource.getHomePosts())
                     .map((model) => model.toEntity())
                     .toList(),
-        localBody: () async => [],
+        cacheData: (posts) async {
+          await _localDatasource.saveHomePosts(posts); // Cache the list
+        },
       );
 
   @override
   Future<Either<Failure, List<Post>>> getHomeStories() async =>
-      await performRequestFromRemoteOrLocal<List<Post>>(
-        remoteBody:
+      await performListRequestFromRemoteOrLocal<Post, PostModel>(
+        remoteRequest: () async => await _remoteDatasource.getHomeStories(),
+        localRequest:
             () async =>
-                (await _remoteDatasource.getHomeStories())
+                (await _localDatasource.getHomeStories())
                     .map((model) => model.toEntity())
                     .toList(),
-        localBody: () async => [],
+        cacheData: (stories) async {
+          await _localDatasource.saveHomeStories(stories);
+        },
       );
 }

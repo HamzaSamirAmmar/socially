@@ -59,5 +59,5 @@ class UserModel with _$UserModel implements BaseModel {
 
   @override
   BaseDbModel toDbModel() =>
-      UserDbModel(id: id, name: name, email: email, createdAt: createdAt);
+      UserDbModel(id: id, name: name, email: email, createdAt: createdAt, avatarUrl: avatarUrl);
 }
