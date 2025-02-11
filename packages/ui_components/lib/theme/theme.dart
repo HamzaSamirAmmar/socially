@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:socially_ui_components/spacing.dart';
-import 'package:socially_ui_components/theme/color.dart';
-
-import 'package:socially_ui_components/theme/text_style.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 /// Default theme of socially domain.
 final sTheme = ThemeData(
@@ -10,54 +7,31 @@ final sTheme = ThemeData(
   brightness: Brightness.light,
   textTheme: _textTheme,
   colorScheme: _colorScheme,
-  shadowColor: SColor.shade,
-  scaffoldBackgroundColor: SColor.white,
-  elevatedButtonTheme: ElevatedButtonThemeData(
-    style: ElevatedButton.styleFrom(
-      elevation: 0.0,
-      surfaceTintColor: Colors.transparent,
-      backgroundColor: Colors.transparent,
-      foregroundColor: SColor.primary,
-      shadowColor: Colors.transparent,
-      padding: const EdgeInsets.symmetric(horizontal: SSpacing.m),
+  shadowColor: Colors.black,
+  scaffoldBackgroundColor:
+      _colorScheme.surface, // Use the surface color for consistency
+  appBarTheme: AppBarTheme(
+    backgroundColor: _colorScheme.surface, // Match scaffold background
+    elevation: 0.0,
+    iconTheme: IconThemeData(
+      color: _colorScheme.onSurface,
+    ), // Icon color matches text
+    titleTextStyle: _textTheme.headlineLarge?.copyWith(
+      color: _colorScheme.onSurface,
     ),
   ),
-  textSelectionTheme: const TextSelectionThemeData(
-    selectionHandleColor: SColor.shade5,
-    selectionColor: SColor.shade,
-  ),
-  bottomSheetTheme: const BottomSheetThemeData(
-    backgroundColor: SColor.white,
-    elevation: 0.0,
-  ),
 );
 
-const _textTheme = TextTheme(
-  displayMedium: STextStyle.racingDisplay1,
-  headlineLarge: STextStyle.racingH1,
-  headlineMedium: STextStyle.racingH2,
-  headlineSmall: STextStyle.racingH3,
-  titleLarge: STextStyle.racingH4,
-  titleMedium: STextStyle.racingH5,
-  bodyLarge: STextStyle.racingBody,
-  bodyMedium: STextStyle.robotoBody,
-  bodySmall: STextStyle.robotoSmallBody,
-  labelMedium: STextStyle.robotoSubtitle,
-  labelSmall: STextStyle.robotoSmallSubtitle,
-);
+final _textTheme = GoogleFonts.gloryTextTheme();
 
 const _colorScheme = ColorScheme(
-  primary: SColor.primary,
-  secondary: SColor.secondary,
-  tertiary: SColor.tertiary,
-  surface: SColor.white,
-  background: SColor.white,
-  error: SColor.primary70,
-  onPrimary: SColor.white,
-  onSecondary: SColor.secondary5,
-  onSurface: SColor.tertiary30,
-  onBackground: SColor.black,
-  onError: SColor.supportive5,
-  surfaceVariant: SColor.shade5,
-  brightness: Brightness.light,
+  primary: Color(0xFF05101C), // Dark background color
+  secondary: Color(0xFFFFFFFF), // Darker shade
+  surface: Color(0xFF05101C), // Light surface color for text areas
+  error: Color(0xFFFF5A5A), // Red for error states
+  onPrimary: Color(0xFFFFFFFF), // Text color on primary
+  onSecondary: Color(0xFF363636), // Text color on secondary
+  onSurface: Color(0xFFFFFFFF), // Dark text color on light surfaces
+  onError: Color(0xFFFFFFFF), // Text color on error backgrounds
+  brightness: Brightness.light, // Based on the overall dark theme of the app
 );
